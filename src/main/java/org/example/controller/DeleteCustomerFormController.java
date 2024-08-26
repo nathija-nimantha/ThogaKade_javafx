@@ -47,6 +47,7 @@ public class DeleteCustomerFormController {
         for (Customer customer : customerList) {
             if (customer.getId().equals(id)) {
                 customerList.remove(customer);
+                showSuccessMessage("Success", "Customer deleted successfully");
                 found = true;
                 break;
             }
@@ -93,6 +94,14 @@ public class DeleteCustomerFormController {
     }
     public void showErrorMessage(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+    public void showSuccessMessage(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(message);
